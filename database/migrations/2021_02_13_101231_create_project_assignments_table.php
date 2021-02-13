@@ -13,7 +13,7 @@ class CreateProjectAssigmentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('project_assigments', function (Blueprint $table) {
+        Schema::create('project_assignments', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('project_id');
