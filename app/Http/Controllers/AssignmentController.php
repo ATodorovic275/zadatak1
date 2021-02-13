@@ -15,4 +15,19 @@ class AssignmentController extends Controller
 
         return view('assignment', ['projects' => $projects, 'users' => $users]);
     }
+
+    public function store(Request $request)
+    {
+        $userId = $request->input('user');
+        $projectId = $request->input('project');
+
+        try {
+            $user = User::find($userId);
+            $user->projects()->attach($projectId);
+
+            return redirect()->route('home');
+        } catch (\Exception $ex) {
+            return $ex->getMessage();
+        }
+    }
 }

@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('home');
 
 Route::get('/assignment', [AssignmentController::class, 'create']);
-Route::post('/assignment', [AssignmentController::class, 'store']);
+Route::post('/assignment', [AssignmentController::class, 'store'])->name('assignment');

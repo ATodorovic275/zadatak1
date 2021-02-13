@@ -4,7 +4,7 @@
         <div class="col-lg-6 mx-auto mt-5">
             <h2 class="text-center">Assignment</h2>
 
-            <form action="" method="post">
+            <form action="{{route('assignment')}}" method="post">
                 @csrf
                 <div class="row">
                     <div class="col-lg-6">
@@ -12,8 +12,8 @@
                             <label for="projects">Projects</label>
                             <select
                                 class="form-control"
-                                name="projects"
-                                id="projects"
+                                name="project"
+                                id="project"
                             >
                                 @foreach ($projects as $project)
                                 <option value="{{$project->id}} ">
@@ -28,8 +28,8 @@
                             <label for="users">Users</label>
                             <select
                                 class="form-control"
-                                name="users"
-                                id="users"
+                                name="user"
+                                id="user"
                             >
                                 @foreach ($users as $user)
                                 <option value="{{$user->id}} ">
