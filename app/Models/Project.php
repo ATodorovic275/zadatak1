@@ -11,6 +11,6 @@ class Project extends Model
 
     public function users()
     {
-        return $this->belongsToMany(User::class, 'project_assignments')->using(AssignmentModel::class);
+        return $this->belongsToMany(User::class, 'project_assignments')->withTimestamps();
     }
 }

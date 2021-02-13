@@ -11,4 +11,9 @@ class AssignmentModel extends Pivot
     use HasFactory;
 
     protected $table = 'project_assignments';
+
+    public function tasks()
+    {
+        return $this->belongsToMany(Task::class, 'user_tasks', 'project_assignment_id')->withTimestamps();
+    }
 }

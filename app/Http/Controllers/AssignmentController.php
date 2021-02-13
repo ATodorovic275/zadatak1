@@ -24,10 +24,10 @@ class AssignmentController extends Controller
         try {
             $user = User::find($userId);
             $user->projects()->attach($projectId);
+
             $project = Project::find($projectId);
 
             $request->session()->put('userProject', ['user' => $user, 'project' => $project]);
-            // dd(session('userProject'));
 
             return redirect()->route('tasks-form');
         } catch (\Exception $ex) {
