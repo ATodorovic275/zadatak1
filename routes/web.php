@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AssignmentController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\TaskController;
 use Illuminate\Support\Facades\Route;
 
@@ -15,10 +16,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('home');
-
+Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/assignment', [AssignmentController::class, 'create']);
 Route::post('/assignment', [AssignmentController::class, 'store'])->name('assignment');
 Route::get('tasks', [TaskController::class, 'index'])->name('tasks-form');

@@ -35,6 +35,7 @@ class TaskController extends Controller
 
         try {
             $projectAssignment->tasks()->attach($tasks);
+            return redirect()->route('home');
         } catch (\Exception $ex) {
             return $ex->getMessage();
         }
