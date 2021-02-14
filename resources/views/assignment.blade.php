@@ -9,12 +9,12 @@
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="form-group">
-                            <label for="projects">Projects</label>
                             <select
                                 class="form-control"
                                 name="project"
                                 id="project"
                             >
+                            <option value="0">Projects</option>
                                 @foreach ($projects as $project)
                                 <option value="{{$project->id}} ">
                                     {{$project->name}}
@@ -25,12 +25,12 @@
                     </div>
                     <div class="col-lg-6">
                         <div class="form-group">
-                            <label for="users">Users</label>
                             <select
                                 class="form-control"
                                 name="user"
                                 id="user"
                             >
+                            <option value="0">Users</option>
                                 @foreach ($users as $user)
                                 <option value="{{$user->id}} ">
                                     {{$user->name}}
@@ -42,11 +42,21 @@
                     <div class="col-lg-12">
                         <button
                             type="submit"
-                            class="btn btn-primary assign-btn"
+                            class="btn btn-primary assign-btn mb-3"
                         >
                             Submit
                         </button>
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
                     </div>
+                   
                 </div>
             </form>
         </div>

@@ -18,6 +18,11 @@ class AssignmentController extends Controller
 
     public function store(Request $request)
     {
+        $request->validate([
+            'project' => 'not_in:0',
+            'user' => 'not_in:0',
+        ]);
+
         $userId = $request->input('user');
         $projectId = $request->input('project');
 
